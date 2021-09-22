@@ -66,7 +66,7 @@ public class _912_sort_an_array {
 
         int[] a = {1,5,3,2,8,7,6,4};
         // System.out.println(Arrays.toString(sortArray(a)));
-        int[] result = sortArray(a);
+        // int[] result = sortArray(a);
         System.out.println("DONE");
     }
 }
