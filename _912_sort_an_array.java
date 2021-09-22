@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class _912_sort_an_array {
     public static int[] merge(int[] a1, int[] a2) {
         int n = a1.length + a2.length;
@@ -65,7 +67,7 @@ public class _912_sort_an_array {
         // System.out.println(Arrays.toString(merge(a1, a2)));
 
         int[] a = {1,5,3,2,8,7,6,4};
-        // System.out.println(Arrays.toString(sortArray(a)));
+        System.out.println(Arrays.toString(sortArray(a)));
         // int[] result = sortArray(a);
         System.out.println("DONE");
     }
