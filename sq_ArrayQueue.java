@@ -12,13 +12,6 @@ public class sq_ArrayQueue implements sq_IStackQueue{
         this.tailIndex = -1;
     }
 
-    public int count() {
-        if (this.isEmpty()) {
-            return 0;
-        }
-        return this.tailIndex - this.headIndex +1;
-    }
-
     @Override
     public boolean push(int value) {
         // TODO Auto-generated method stub
