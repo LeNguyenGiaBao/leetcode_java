@@ -1,7 +1,7 @@
 package tree;
 
 public class MyBinaryTree {
-    private TreeNode root;
+    public TreeNode root;
 
     public MyBinaryTree() {
 

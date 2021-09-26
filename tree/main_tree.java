@@ -17,7 +17,9 @@ public class main_tree {
         myTree.root = myTree.insertNode(myTree.root, 0);
         myTree.root = myTree.insertNode(myTree.root, 3);
         myTree.root = myTree.insertNode(myTree.root, 7);
-        myTree.root = myTree.insertNode(myTree.root, 4);
+        myTree.root = myTree.insertNode(myTree.root, 2);
+
+        myTree.deleteNode(myTree.root, 1);
 
         System.out.println("DONE");
     }

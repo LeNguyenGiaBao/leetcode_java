@@ -1,43 +1,17 @@
-package tree;
-
-public class MyBinarySearchTree {
-    public TreeNode root;
-
-    public MyBinarySearchTree() {
-
-    }
-
-    public TreeNode insertNode(TreeNode root, int value) {
-        TreeNode newNode = new TreeNode(value);
-
-        // root is null
-        if (root == null) {
-            root = newNode;
-            return root;
-        } else {
-            TreeNode tempNode = root;
-            while (true) {
-                if (value < tempNode.val) {
-                    if (tempNode.left == null) {
-                        tempNode.left = newNode;
-                        break;
-                    } else {
-                        tempNode = tempNode.left;
-                    }
-                } else if (value > tempNode.val) {
-                    if (tempNode.right == null) {
-                        tempNode.right = newNode;
-                        break;
-                    } else {
-                        tempNode = tempNode.right;
-                    }
-                }
-            }
-            return root;
+public class _450_delete_node_in_a_BST {
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
         }
     }
 
-    // find the final left of the root
     public TreeNode findLeftMostNode(TreeNode root) {
         if (root == null) {
             return null;
