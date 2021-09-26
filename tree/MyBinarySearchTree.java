@@ -162,4 +162,44 @@ public class MyBinarySearchTree {
             return root;
         }
     }
+
+
+    // PreOrder N -> L -> R
+    public void PreOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        System.out.print(root.val + " ");
+
+        // go to left
+        PreOrder(root.left);
+        PreOrder(root.right);
+    }
+
+    // InOrder L -> N -> R
+    public void InOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        // go to left
+        InOrder(root.left);
+        
+        System.out.print(root.val + " ");
+
+        InOrder(root.right);
+    }
+
+    // PostOrder L -> R -> N
+    public void PostOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        // go to left
+        PostOrder(root.left);
+        PostOrder(root.right);
+        System.out.print(root.val + " ");
+    }
 }
