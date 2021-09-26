@@ -1,5 +1,7 @@
 package tree;
 
+import javax.xml.transform.Templates;
+
 public class MyBinarySearchTree {
     public TreeNode root;
 
@@ -35,6 +37,29 @@ public class MyBinarySearchTree {
             }
             return root;
         }
+    }
+
+    public TreeNode inseTreeNode_recursion(TreeNode root, int value) {
+        // root is null
+        if (root == null) {
+            return new TreeNode(value);
+        }
+
+        if (value < root.val) {
+            if (root.left == null) {
+                root.left = new TreeNode(value);
+            } else {
+                inseTreeNode_recursion(root.left, value);
+            }
+        } else {
+            if (root.right == null) {
+                root.right = new TreeNode(value);
+            } else {
+                inseTreeNode_recursion(root.right, value);
+            }
+        }
+
+        return root;
     }
 
     // find the final left of the root
@@ -91,5 +116,50 @@ public class MyBinarySearchTree {
 
 
         return root;
+    }
+
+    public TreeNode searchBST(TreeNode root, int val) {
+        if (root == null) {
+            return null;
+        }
+
+        if (root.val == val) {
+            return root;
+        }
+
+        TreeNode temp = root;
+        while (temp.val != val) {
+            if (val < temp.val) {
+                if (temp.left != null) {
+                    temp = temp.left;
+                } else {
+                    return null;
+                }
+            } else {
+                if (temp.right != null) {
+                    temp = temp.right;
+                } else {
+                    return null;
+                }
+            }
+
+        }
+        return temp;
+    }
+
+    public TreeNode searchBST_recursion(TreeNode root, int val) {
+
+        // check root is null
+        if (root == null) {
+            return null;
+        }
+        
+        if (val < root.val) {
+            return searchBST_recursion(root.left, val);
+        } else if (val > root.val) {
+            return searchBST_recursion(root.right, val);
+        } else {
+            return root;
+        }
     }
 }

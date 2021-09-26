@@ -21,6 +21,7 @@ public class main_tree {
 
         myTree.deleteNode(myTree.root, 1);
 
+        TreeNode root_2 = myTree.searchBST(myTree.root, 2);
         System.out.println("DONE");
     }
 }
