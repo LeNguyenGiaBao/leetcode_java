@@ -1,3 +1,4 @@
+package recursion;
 public class recursion_factorial {
     public static int factorial(int n) {
         if(n==0) {

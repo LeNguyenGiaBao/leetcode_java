@@ -1,3 +1,4 @@
+package stack_queue;
 import java.util.Stack;
 
 public class sq_StackBuildInJava {

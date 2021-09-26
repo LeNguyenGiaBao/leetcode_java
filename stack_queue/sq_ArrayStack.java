@@ -1,3 +1,4 @@
+package stack_queue;
 public class sq_ArrayStack implements sq_IStackQueue {
 
     private int[] array;

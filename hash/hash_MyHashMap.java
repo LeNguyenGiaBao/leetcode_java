@@ -1,3 +1,4 @@
+package hash;
 import java.util.ArrayList;
 
 public class hash_MyHashMap {

@@ -1,3 +1,4 @@
+package stack_queue;
 public class sq_LinkedListStack implements sq_IStackQueue{
 
     private class Node {

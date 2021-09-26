@@ -1,3 +1,4 @@
+package stack_queue;
 public class sq_main {
     public static void main(String[] args) {
         // ----------------------- Array Stack ---------------------------

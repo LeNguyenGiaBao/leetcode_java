@@ -1,3 +1,4 @@
+package stack_queue;
 public interface sq_IStackQueue {
     public boolean push(int value);
     public int pop();
