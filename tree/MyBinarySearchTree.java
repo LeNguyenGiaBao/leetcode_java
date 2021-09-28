@@ -1,6 +1,4 @@
-package tree;
-
-import javax.xml.transform.Templates;
+package tree; 
 
 public class MyBinarySearchTree {
     public TreeNode root;
