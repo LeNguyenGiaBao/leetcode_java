@@ -14,9 +14,10 @@ public class _203_remove_linked_list_elements {
         while(curNode != null) {
             if (curNode.val == val) {
                 if (preNode == null) { // curNode is headNode
-                    head = curNode.next;
-                    curNode = head;
+                    curNode = curNode.next;
+                    head = curNode;
                 } else {
+                    preNode.next = curNode.next;
                     curNode = curNode.next;
                 }
             } else {
@@ -37,21 +38,21 @@ public class _203_remove_linked_list_elements {
     }
 
     public static void main(String[] args) {
-        ListNode l1 = new ListNode(1);
-        ListNode l2 = new ListNode(2);
-        ListNode l3 = new ListNode(6);
-        ListNode l4 = new ListNode(3);
-        ListNode l5 = new ListNode(4);
-        ListNode l6 = new ListNode(5);
-        ListNode l7 = new ListNode(6);
+        // ListNode l1 = new ListNode(1);
+        // ListNode l2 = new ListNode(2);
+        // ListNode l3 = new ListNode(6);
+        // ListNode l4 = new ListNode(3);
+        // ListNode l5 = new ListNode(4);
+        // ListNode l6 = new ListNode(5);
+        // ListNode l7 = new ListNode(6);
 
-        // ListNode l1 = new ListNode(7);
-        // ListNode l2 = new ListNode(7);
-        // ListNode l3 = new ListNode(7);
-        // ListNode l4 = new ListNode(7);
-        // ListNode l5 = new ListNode(7);
-        // ListNode l6 = new ListNode(7);
-        // ListNode l7 = new ListNode(7);
+        ListNode l1 = new ListNode(7);
+        ListNode l2 = new ListNode(7);
+        ListNode l3 = new ListNode(7);
+        ListNode l4 = new ListNode(7);
+        ListNode l5 = new ListNode(7);
+        ListNode l6 = new ListNode(7);
+        ListNode l7 = new ListNode(7);
 
         l1.next = l2;
         l2.next = l3;
