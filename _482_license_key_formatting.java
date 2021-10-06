@@ -23,6 +23,5 @@ public class _482_license_key_formatting {
         int k = 2;
         String result = licenseKeyFormatting(s, k);
         System.out.println(result);
-        String result2 = "NOTDONE";
     }
 }
