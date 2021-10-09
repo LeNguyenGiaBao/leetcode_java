@@ -60,6 +60,25 @@ public class _993_cousins_in_binary_tree {
         return false;
     }
 
+    public static TreeNode getParent(TreeNode root, TreeNode parentNode, int x) {
+        if (root != null) {
+            if (root.val == x) {
+                return parentNode;
+            } else {
+                TreeNode paLeft = getParent(root.left, root, x);
+                if (paLeft != null) {
+                    return paLeft;
+                }
+
+                TreeNode paRight = getParent(root.right, root, x);
+                if (paRight != null) {
+                    return paRight;
+                }
+            }
+        }
+        return null;
+    }
+
     public static boolean isCousins(TreeNode root, int x, int y) {
         if (root == null) {
             return false;
@@ -68,8 +87,18 @@ public class _993_cousins_in_binary_tree {
         int pathX = getPath(root, x, 0);
         int pathY = getPath(root, y, 0);
 
+        // using isBrother
+        // if (pathX == pathY) {
+        //     if (!isBrother(root, x, y)) {
+        //         return true;
+        //     }
+        // }
+
+        // using getParent
         if (pathX == pathY) {
-            if (!isBrother(root, x, y)) {
+            TreeNode parrentX = getParent(root, null, x);
+            TreeNode parrentY = getParent(root, null, y);
+            if (parrentX != parrentY) {
                 return true;
             }
         }
@@ -94,16 +123,27 @@ public class _993_cousins_in_binary_tree {
         // n2.left = n3;
         // n2.right = n5;
         // n3.left = n4;
+        
+        // false
+        // n1.left = n2;
+        // n1.right = n3;
+        // n3.left = n4;
+        // n4.right = n5;
 
+        // true
         n1.left = n2;
         n1.right = n3;
-        n3.left = n4;
+        n2.right = n4;
         n3.right = n5;
         
         // int path = getPath(n1, 6, 0);
         // System.out.println(path);
 
+        // TreeNode parrent = getParent(n1, null, 2);
+        // System.out.println(parrent.val);
+
         boolean checkBrother = isCousins(n1, 5, 4);
         System.out.println(checkBrother);
+
     }
 }
