@@ -54,7 +54,13 @@ public class heap_MyHeap {
         this.arr[1] = this.arr[this.size];
         this.size --;
 
-        int curIndex = 1;
+        heapifyDown(1); // heapify at root (1)
+        
+        
+        return minRoot;
+    }
+
+    private void heapifyDown(int curIndex) {
         int leftChild = curIndex * 2;
         while (leftChild <= this.size) {
             int smallerChild = leftChild;
@@ -71,8 +77,26 @@ public class heap_MyHeap {
                 break;
             }
         }
-        
-        return minRoot;
+    }
+
+    public void remove (int v) {
+        int curIndex = -1;
+        for (int i = 0; i < this.arr.length; i++) {
+            if (this.arr[i] == v) {
+                curIndex = i;
+            }
+        }
+
+        if (curIndex == -1) {
+            System.out.println("This element is not exist");
+            return;
+        }
+
+        this.arr[curIndex] = this.arr[this.size];
+        this.size--;
+
+        // heapify - down
+        heapifyDown(curIndex);
     }
 
     public static void main(String[] args) {
@@ -80,10 +104,20 @@ public class heap_MyHeap {
         myHeap.add(10);
         myHeap.add(5);
         myHeap.add(1);
-        myHeap.add(8);
+        myHeap.add(6);
+
+        // poll
+        // while (myHeap.isEmpty() == false) {
+        //     System.out.println(myHeap.poll());
+        // }
+
+        System.out.println("Peek: " + myHeap.peek()); // 1
+        myHeap.remove(1);
+        System.out.println("Peek: " + myHeap.peek()); // 5
+        myHeap.remove(6);
 
         while (myHeap.isEmpty() == false) {
             System.out.println(myHeap.poll());
-        }
+        } // 5 10
     }
 }
