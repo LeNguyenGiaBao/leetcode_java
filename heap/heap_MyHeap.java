@@ -9,6 +9,12 @@ public class heap_MyHeap {
         size = 0;
     }
 
+    private void swap(int i, int j) {
+        int temp = this.arr[i];
+        this.arr[i] = this.arr[j];
+        this.arr[j] = temp;
+    }
+
     public boolean isEmpty() {
         return this.size <= 0;
     }
@@ -24,17 +30,60 @@ public class heap_MyHeap {
         this.size++;
         this.arr[size] = v;
 
-        //heapify up
+        // heapify up
         int curIndex = size;
         int parrentIndex = curIndex / 2;
 
         while (this.arr[parrentIndex] > this.arr[curIndex] && parrentIndex > 0) {
-            int temp = this.arr[parrentIndex];
-            this.arr[parrentIndex] = this.arr[curIndex];
-            this.arr[curIndex] = temp;
+            swap(parrentIndex, curIndex);
 
             curIndex = parrentIndex;
             parrentIndex = curIndex / 2;
+        }
+    }
+
+    public int poll() {
+        if (this.isEmpty()) {
+            System.out.println("Heap is empty");
+            return -1;
+        }
+
+        int minRoot = this.arr[1];
+
+        // heapify down  
+        this.arr[1] = this.arr[this.size];
+        this.size --;
+
+        int curIndex = 1;
+        int leftChild = curIndex * 2;
+        while (leftChild <= this.size) {
+            int smallerChild = leftChild;
+            int rightChild = leftChild + 1;
+            if (rightChild <= this.size && this.arr[rightChild] < this.arr[leftChild]) {
+                smallerChild = rightChild;
+            }
+
+            if (this.arr[curIndex] > this.arr[smallerChild]) { // parent > child-> need to modify
+                swap(curIndex, smallerChild);
+                curIndex = smallerChild;
+                leftChild = curIndex * 2;
+            } else {
+                break;
+            }
+        }
+        
+        return minRoot;
+    }
+
+    public static void main(String[] args) {
+        heap_MyHeap myHeap = new heap_MyHeap();
+        myHeap.add(10);
+        myHeap.add(5);
+        myHeap.add(1);
+        myHeap.add(8);
+
+        while (myHeap.isEmpty() == false) {
+            System.out.println(myHeap.poll());
         }
     }
 }
