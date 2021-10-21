@@ -2,6 +2,7 @@ import java.util.Stack;
 
 public class _151_reverse_words_in_a_string {
     public static String reverseWords(String s) {
+        s = s + " ";
         char[] a = s.toCharArray();
         int n = a.length;
         Stack<String> stack = new Stack<>();
@@ -12,7 +13,7 @@ public class _151_reverse_words_in_a_string {
                 subString.append(a[i]);
             } else {
                 String word = subString.toString();
-                if (word != "") {
+                if (word.length() != 0) {
                     stack.push(word);
                 }
 
@@ -23,14 +24,17 @@ public class _151_reverse_words_in_a_string {
         String result = "";
         while(!stack.isEmpty()) {
             String stringPop = stack.pop();
-            result += stringPop + " ";
+            result += stringPop;
+            if (!stack.isEmpty()) {
+                result += " ";
+            }
         }
 
         return result;
     }
 
     public static void main(String[] args) {
-        String s = "         the         sky        is blue ";
+        String s = "the         sky        is blue";
         String result = reverseWords(s);
         System.out.println(result);
     }
