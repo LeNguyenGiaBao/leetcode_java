@@ -1,5 +1,4 @@
 import java.util.Stack;
-import java.io.*;
 
 public class _394_decode_string {
     public static String decodeString(String s) {
@@ -26,7 +25,7 @@ public class _394_decode_string {
                 while (stack.isEmpty() == false && Character.isDigit(stack.peek())) {
                     amount = stack.pop() + amount;
                 }
-                int amountNumber = Integer.parseInt(amount);
+                // int amountNumber = Integer.parseInt(amount);
 
                 // multiple str amountNumber times
                 // str = str.repeat(amountNumber); // un- co
