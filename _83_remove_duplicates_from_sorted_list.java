@@ -1,5 +1,3 @@
-import java.util.HashSet;
-
 public class _83_remove_duplicates_from_sorted_list {
     public static class ListNode {
         int val;
@@ -24,11 +22,7 @@ public class _83_remove_duplicates_from_sorted_list {
                 currentNode = nextNode;
             }
             
-            if (currentNode != null) {
-                nextNode = currentNode.next;
-            } else {
-                break;
-            }
+            nextNode = currentNode.next;
         }
         return head;
     }
