@@ -13,6 +13,9 @@ public class _941_valid_mountain_array {
         }
 
         for (int i = 0; i < n - 1; i++) {
+            if (a[i] == a[i+1]) {
+                return false;
+            }
             if (a[i] < a[i+1] != isIncrease) {
                 if ( isChanged == false) {
                     isChanged = true;
@@ -21,6 +24,9 @@ public class _941_valid_mountain_array {
                     return false;
                 }
             }
+        }
+        if (isChanged == false) {
+            return false;
         }
         return true;
     }
