@@ -14,9 +14,16 @@ public class _136_single_number {
         return -1;
     }
 
+    public static int singleNumber_bit_manipulation(int[] nums) {
+        int result = 0;
+        for (int i = 0; i < nums.length; i++) {
+            result ^= nums[i];  // xor
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         int[] nums = {4,1,2,1,2};
         System.out.println(singleNumber(nums));
-        System.out.println(2^0);
     }
 }
