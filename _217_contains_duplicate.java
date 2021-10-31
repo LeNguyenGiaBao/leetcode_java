@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class _217_contains_duplicate {
     public static boolean containsDuplicate(int[] nums) {
         int[] sortedNums = mergeSort(nums, 0, nums.length-1);
@@ -63,8 +66,22 @@ public class _217_contains_duplicate {
         return result;
     }
 
+    // Hash Set
+    public static boolean containsDuplicate_HashSet(int[] nums) {
+        Set<Integer> mySet = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (mySet.contains(nums[i])) {
+                return true;
+            } else {
+                mySet.add(nums[i]);
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         int[] nums = {1,2,3,1};
         System.out.println(containsDuplicate(nums));
+        System.out.println(containsDuplicate_HashSet(nums));
     }
 }
