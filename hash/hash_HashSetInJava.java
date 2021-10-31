@@ -11,7 +11,6 @@ public class hash_HashSetInJava {
         myIntSet.add(2);
         myIntSet.add(3);
         myIntSet.add(1);
-        myIntSet.add(2);
 
         for (Integer integer : myIntSet) {
             System.out.println(integer);
